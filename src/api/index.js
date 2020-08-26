@@ -1,6 +1,11 @@
 const express = require('express');
 
-const leaderboard = require('./leaderboard')
+const leaderboard = require('./leaderboard');
+const user = require("../routes/user"); 
+
+const InitiateMongoServer = require("../config/db");
+
+InitiateMongoServer();
 
 const router = express.Router();
 
@@ -11,5 +16,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/leaderboard', leaderboard);
+router.use('/user', user);
 
 module.exports = router;

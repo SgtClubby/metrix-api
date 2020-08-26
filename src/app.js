@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const bodyParser = require("body-parser");
 const cors = require('cors');
 
 require('dotenv').config();
@@ -10,6 +11,7 @@ const api = require('./api');
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
@@ -21,7 +23,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/api/v1', api);
+app.use('/api', api);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
