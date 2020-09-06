@@ -5,6 +5,8 @@ const user = require("../routes/user");
 
 const InitiateMongoServer = require("../config/db");
 
+
+//mongo
 InitiateMongoServer();
 
 const router = express.Router();
