@@ -8,7 +8,7 @@ const InitiateMongoServer = async () => {
     await mongoose.connect(MONGOURI, {
       useNewUrlParser: true
     });
-    console.log("Connected to DB !!");
+    console.log(`Connected to ${MONGOURI}`);
   } catch (e) {
     console.log(e);
     throw e;

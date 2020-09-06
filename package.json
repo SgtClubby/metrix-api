@@ -1,0 +1,33 @@
+{
+      "name": "metrix-api",
+      "version": "1.0.7",
+      "description": "For use with my website and my discord bot!",
+      "main": "/src/index.js",
+      "scripts": {
+            "start": "node ./src/index.js"
+      },
+      "repository": {
+            "type": "git",
+            "url": "git+https://github.com/SgtClubby/metrix-api.git"
+      },
+      "author": "Erlend Volden (aka SgtClubby)",
+      "license": "ISC",
+      "bugs": {
+            "url": "https://github.com/SgtClubby/metrix-api/issues"
+      },
+      "homepage": "https://github.com/SgtClubby/metrix-api#readme",
+      "dependencies": {
+            "bcryptjs": "^2.4.3",
+            "body-parser": "^1.19.0",
+            "cors": "^2.8.5",
+            "discord.js": "^11.4.2",
+            "dotenv": "^8.2.0",
+            "express": "^4.17.1",
+            "express-validator": "^6.6.1",
+            "helmet": "^3.23.3",
+            "jsonwebtoken": "^8.5.1",
+            "mongodb": "^3.6.1",
+            "mongoose": "^5.10.3",
+            "morgan": "^1.10.0"
+      }
+}

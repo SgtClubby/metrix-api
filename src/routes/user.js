@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const auth = require("../middleware/auth");
 
-const User = require("../model/User");
+const User = require("../model/user");
 
 /**
  * @method - POST
@@ -62,7 +62,7 @@ router.post(
 
       jwt.sign(
         payload,
-        "randomString",
+        "v7BGvAk0jUcLJEy9uX9x",
         {
           expiresIn: 10000
         },
@@ -121,7 +121,7 @@ router.post(
 
       jwt.sign(
         payload,
-        "randomString",
+        "v7BGvAk0jUcLJEy9uX9x",
         {
           expiresIn: 3600
         },
