@@ -2,11 +2,11 @@ const express = require('express');
 
 const leaderboard = require('./leaderboard');
 const user = require("../routes/user"); 
+const fortiap = require("./fortiap")
+const get_aps = require("./get_aps")
 
 const InitiateMongoServer = require("../config/db");
 
-
-//mongo
 InitiateMongoServer();
 
 const router = express.Router();
@@ -19,5 +19,7 @@ router.get('/', (req, res) => {
 
 router.use('/leaderboard', leaderboard);
 router.use('/user', user);
+router.use('/fortiap', fortiap);
+router.use('/get_aps', get_aps);
 
 module.exports = router;
