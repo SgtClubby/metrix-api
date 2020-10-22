@@ -11,14 +11,14 @@ client.login(token)
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    MongoClient.connect(url, { useUnifiedTopology: true },  function(err, db) {
+    MongoClient.connect(url,  function(err, db) {
         if (err) throw err
         var dbo = db.db("metrix")
-        dbo.collection("levels").find({}).sort({exp: -1}).toArray(function(err, output) {
+        dbo.collection("levels").find({}, {"_id":0, "user_id":0}).sort({exp: -1}).toArray(function(err, output) {
             if (err) throw err
             db.close()
             var newjson = JSON.stringify(output)
-            res.send(newjson)
+            res.status(200).send(newjson)
         })
     })
 });
