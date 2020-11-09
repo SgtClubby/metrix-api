@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const auth = require("../middleware/auth");
+const jwttoken = require("../api/config.json").jwttoken
 
 const User = require("../model/user");
 
@@ -69,7 +70,7 @@ router.post(
 
       jwt.sign(
         payload,
-        "v7BGvAk0jUcLJEy9uX9x",
+        jwttoken,
         {
           expiresIn: 10000
         },
@@ -128,7 +129,7 @@ router.post(
 
       jwt.sign(
         payload,
-        "v7BGvAk0jUcLJEy9uX9x",
+        jwttoken,
         {
           expiresIn: 3600
         },
