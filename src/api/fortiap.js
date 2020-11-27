@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
 
             //gets data from body and parses
             let dataparsed = req.body.text
-
+            
             function isJson(str) {
                 try {
                     JSON.parse(str);
@@ -44,8 +44,13 @@ router.post("/", async (req, res) => {
                             serial: serial,
                             createdAt: new Date()
                         } 
-                        dbo.collection("cloudkeys").insertOne(newcloud_key, function(err, res) {})
-                        res.status(200).json({message:"Success!"})
+                        dbo.collection("cloudkeys").insertOne(newcloud_key, function(err, result) {
+                            if (!err) {
+                                res.status(200).json({message:`Success! ${result}`})
+                            } else {
+                                res.json({message:err})
+                            }
+                        })
                         db.close()
                     } else {
                         res.status(409).json({message: "Cloud Key already in database!"})
@@ -55,8 +60,7 @@ router.post("/", async (req, res) => {
         } catch (error) {
             throw error 
         }         
-    }
-);
+     });
   
     /**
      * @method - POST
