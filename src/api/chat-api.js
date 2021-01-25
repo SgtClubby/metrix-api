@@ -1,23 +1,23 @@
-let socketport = 3000
-const io = require('socket.io')(socketport)
+let chatSocketPort = 3000
+const chatws = require('socket.io')(chatSocketPort)
 
 console.log(`Connected to http://localhost:${socketport}. Listening...`)
 
 const users = {}
       
-io.on('connection', (socket) => {
+chatws.on('connection', (chat) => {
 
-socket.on('new-user', name => {
-    users[socket.id] = name
-    socket.broadcast.emit('user-connected', name)
+chat.on('new-user', name => {
+    users[chat.id] = name
+    chat.broadcast.emit('user-connected', name)
 })
 
-socket.on('send-chat-message', async (message) => {
-        socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })  
+chat.on('send-chat-message', async (message) => {
+    chat.broadcast.emit('chat-message', { message: message, name: users[chat.id] })  
 })
 
-socket.on('disconnect', () => {
-    socket.broadcast.emit('user-disconnected', users[socket.id])
-    delete users[socket.id]
+chat.on('disconnect', () => {
+    chat.broadcast.emit('user-disconnected', users[chat.id])
+    delete users[chat.id]
     })
 })
