@@ -27,7 +27,7 @@
             "helmet": "^3.23.3",
             "jsonwebtoken": "^8.5.1",
             "mongodb": "^3.6.1",
-            "mongoose": "^5.10.3",
+            "mongoose": "^5.13.14",
             "morgan": "^1.10.0",
             "rate-limiter-flexible": "^2.1.10",
             "socket.io": "^2.3.0"
