@@ -29,7 +29,7 @@
             "mongodb": "^3.6.1",
             "mongoose": "^5.10.3",
             "morgan": "^1.10.0",
-            "rate-limiter-flexible": "^2.1.10",
+            "rate-limiter-flexible": "^2.3.7",
             "socket.io": "^2.3.0"
       }
 }
